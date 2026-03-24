@@ -13,10 +13,10 @@ st.set_page_config(page_title="HERO Learning App", layout="wide")
 st.markdown("""
 <style>
 body {
-    background-color: #FFFDEB;  /* super soft yellow */
+    background-color: #F4D03F;  /* super soft yellow */
 }
 .main {
-    background-color: #FFFDEB;
+    background-color: #F4D03F;
 }
 .card {
     padding: 15px;
@@ -66,7 +66,7 @@ page = st.sidebar.radio("Menu", ["Home", "Video Learning", "Virtual Lab", "Score
 def user_header():
     col1, col2 = st.columns([1, 5])
     with col1:
-        st.image("https://cdn-icons-png.flaticon.com/512/149/149071.png", width=80)
+        st.image("https://cdn-icons-png.flaticon.com/512/149/149071.png", width=150)
     with col2:
         st.write("**Kurni Ramadhani | Grade 10 High School**")
 
