@@ -85,7 +85,7 @@ if page == "Home":
         "Math": "#FFF176"
     }
 
-     for subject, bg_color in subjects.items():
+    for subject, bg_color in subjects.items():
         st.markdown(f"<h3 style='background-color:{bg_color};padding:5px;border-radius:10px'>{subject} (High School)</h3>", unsafe_allow_html=True)
         videos = [f"{subject} Topic {i+1}" for i in range(16)]  # 16 videos per subject
         cols = st.columns(4)
