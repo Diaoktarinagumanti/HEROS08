@@ -12,7 +12,12 @@ st.set_page_config(page_title="HERO Learning App", layout="wide")
 # =========================
 st.markdown("""
 <style>
-.main {background-color: #FFFDF5;}
+body {
+    background-color: #E0F7FA;  /* soft blue */
+}
+.main {
+    background-color: #E0F7FA;
+}
 .card {
     padding: 15px;
     border-radius: 15px;
@@ -21,7 +26,7 @@ st.markdown("""
     font-weight: bold;
 }
 .video-box {
-    background-color: black;
+    background-color: #0277BD;  /* darker blue for videos */
     height: 120px;
     display: flex;
     align-items: center;
@@ -29,6 +34,19 @@ st.markdown("""
     border-radius: 10px;
     color: white;
     font-size: 30px;
+}
+.stSidebar {
+    background-color: #B3E5FC;  /* soft blue */
+}
+.stButton>button {
+    background-color: #B3E5FC;
+    color: black;
+    border-radius: 10px;
+}
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -60,34 +78,24 @@ if page == "Home":
     st.subheader("Recommended Learning Videos for You")
 
     subjects = {
-        "Physics": "#81D4FA",
-        "Chemistry": "#A5D6A7",
-        "Biology": "#F48FB1",
-        "Math": "#FFF176"
+        "Physics": "#A7C7E7",
+        "Chemistry": "#B4F8C8",
+        "Biology": "#FFB7C5",
+        "Math": "#FDE2A7"
     }
 
     for subject, bg_color in subjects.items():
-        # Subject title
-        st.markdown(
-            f"<h3 style='background-color:{bg_color};padding:5px;border-radius:10px'>{subject} (High School)</h3>",
-            unsafe_allow_html=True
-        )
+        st.markdown(f"### {subject}")
+        cols = st.columns(10)
 
-        # Video cards
-        videos = [f"{subject} Topic {i+1}" for i in range(16)]
-        cols = st.columns(4)
-        for i, video_name in enumerate(videos):
-            col_index = i % 4
-            with cols[col_index]:
-                st.markdown(
-                    f"""
-<div class='card' style='background-color:{bg_color}'>
-    <div class='video-box'>▶</div>
-    {video_name}
-</div>
-""",
-                    unsafe_allow_html=True
-                )
+        for i, col in enumerate(cols):
+            with col:
+                st.markdown(f"""
+                <div class='card' style='background-color:{bg_color}'>
+                    <div class='video-box'>▶</div>
+                    Video {i+1} - {subject} Concept
+                </div>
+                """, unsafe_allow_html=True)
 
 # =========================
 # VIDEO LEARNING
