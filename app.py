@@ -13,10 +13,10 @@ st.set_page_config(page_title="HERO Learning App", layout="wide")
 st.markdown("""
 <style>
 body {
-    background-color: #E0F7FA;  /* soft blue */
+    background-color: #FFFDF5;  /* soft blue */
 }
 .main {
-    background-color: #E0F7FA;
+    background-color: #FFFDF5;
 }
 .card {
     padding: 15px;
@@ -86,7 +86,7 @@ if page == "Home":
 
     for subject, bg_color in subjects.items():
         st.markdown(f"### {subject}")
-        cols = st.columns(10)
+        cols = st.columns(5)
 
         for i, col in enumerate(cols):
             with col:
