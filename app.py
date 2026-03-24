@@ -8,15 +8,15 @@ import numpy as np
 st.set_page_config(page_title="HERO Learning App", layout="wide")
 
 # =========================
-# CUSTOM CSS (Colorful Pastel Theme)
+# CUSTOM CSS (Soft Yellow Theme)
 # =========================
 st.markdown("""
 <style>
 body {
-    background-color: #FFFDF5;  /* soft blue */
+    background-color: #FFFDEB;  /* super soft yellow */
 }
 .main {
-    background-color: #FFFDF5;
+    background-color: #FFFDEB;
 }
 .card {
     padding: 15px;
@@ -36,10 +36,10 @@ body {
     font-size: 30px;
 }
 .stSidebar {
-    background-color: #B3E5FC;  /* soft blue */
+    background-color: #FFF9C4;  /* soft yellow for sidebar */
 }
 .stButton>button {
-    background-color: #B3E5FC;
+    background-color: #FFF9C4;
     color: black;
     border-radius: 10px;
 }
@@ -47,6 +47,7 @@ body {
     display: flex;
     overflow-x: auto;
     gap: 15px;
+    padding-bottom: 10px;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -86,16 +87,21 @@ if page == "Home":
 
     for subject, bg_color in subjects.items():
         st.markdown(f"### {subject}")
-        cols = st.columns(5)
 
-        for i, col in enumerate(cols):
-            with col:
-                st.markdown(f"""
-                <div class='card' style='background-color:{bg_color}'>
-                    <div class='video-box'>▶</div>
-                    Video {i+1} - {subject} Concept
-                </div>
-                """, unsafe_allow_html=True)
+        # Horizontal scroll container
+        st.markdown("<div class='horizontal-scroll'>", unsafe_allow_html=True)
+        videos = [f"Video {i+1} - {subject} Concept" for i in range(16)]
+        for video_name in videos:
+            st.markdown(
+                f"""
+<div class='card' style='background-color:{bg_color}; min-width:200px; display:inline-block;'>
+    <div class='video-box'>▶</div>
+    {video_name}
+</div>
+""",
+                unsafe_allow_html=True
+            )
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # =========================
 # VIDEO LEARNING
