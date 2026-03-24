@@ -12,12 +12,7 @@ st.set_page_config(page_title="HERO Learning App", layout="wide")
 # =========================
 st.markdown("""
 <style>
-body {
-    background-color: #E0F7FA;  /* soft blue */
-}
-.main {
-    background-color: #E0F7FA;
-}
+.main {background-color: #FFFDF5;}
 .card {
     padding: 15px;
     border-radius: 15px;
@@ -26,7 +21,7 @@ body {
     font-weight: bold;
 }
 .video-box {
-    background-color: #0277BD;  /* darker blue for videos */
+    background-color: black;
     height: 120px;
     display: flex;
     align-items: center;
@@ -34,19 +29,6 @@ body {
     border-radius: 10px;
     color: white;
     font-size: 30px;
-}
-.stSidebar {
-    background-color: #B3E5FC;  /* soft blue */
-}
-.stButton>button {
-    background-color: #B3E5FC;
-    color: black;
-    border-radius: 10px;
-}
-.horizontal-scroll {
-    display: flex;
-    overflow-x: auto;
-    gap: 15px;
 }
 </style>
 """, unsafe_allow_html=True)
