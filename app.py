@@ -54,9 +54,9 @@ body {
 # =========================
 # SIDEBAR
 # =========================
-st.sidebar.image("logo.png", width=150)  # logo di sidebar
+st.sidebar.image("logo.png", width=150)
 st.sidebar.title("HERO'S 🚀")
-st.sidebar.write("🔔 ⚙️")  # notification and settings icons
+st.sidebar.write("🔔 ⚙️")
 page = st.sidebar.radio("Menu", ["Home", "Video Learning", "Virtual Lab", "Score Page"])
 
 # =========================
@@ -73,7 +73,6 @@ def user_header():
 # HOME PAGE
 # =========================
 if page == "Home":
-    st.container()
     user_header()
     st.title("Welcome to HERO'S 🧠")
     st.subheader("Recommended Learning Videos for You")
@@ -86,18 +85,27 @@ if page == "Home":
     }
 
     for subject, bg_color in subjects.items():
-    st.markdown(f"<h3 style='background-color:{bg_color};padding:5px;border-radius:10px'>{subject} (High School)</h3>", unsafe_allow_html=True)
-    videos = [f"{subject} Topic {i+1}" for i in range(16)]  # 16 videos per subject
-    cols = st.columns(4)
-    for i, video_name in enumerate(videos):
-        col_index = i % 4
-        with cols[col_index]:
-            st.markdown(f"""
+        # Subject title
+        st.markdown(
+            f"<h3 style='background-color:{bg_color};padding:5px;border-radius:10px'>{subject} (High School)</h3>",
+            unsafe_allow_html=True
+        )
+
+        # Video cards
+        videos = [f"{subject} Topic {i+1}" for i in range(16)]
+        cols = st.columns(4)
+        for i, video_name in enumerate(videos):
+            col_index = i % 4
+            with cols[col_index]:
+                st.markdown(
+                    f"""
 <div class='card' style='background-color:{bg_color}'>
     <div class='video-box'>▶</div>
     {video_name}
 </div>
-""", unsafe_allow_html=True)
+""",
+                    unsafe_allow_html=True
+                )
 
 # =========================
 # VIDEO LEARNING
@@ -169,7 +177,7 @@ elif page == "Score Page":
     for subject, values in scores.items():
         st.subheader(f"{subject} Daily Progress")
         df = pd.DataFrame({'Day': days, 'Score': values})
-        chart = st.line_chart(df.set_index('Day'), use_container_width=True)
+        st.line_chart(df.set_index('Day'), use_container_width=True)
         st.write(f"Average score: {np.mean(values):.2f}")
         if np.mean(values) >= 85:
             st.write("Performance: Excellent 🟢")
