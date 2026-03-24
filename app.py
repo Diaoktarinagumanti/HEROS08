@@ -54,7 +54,7 @@ body {
 # =========================
 # SIDEBAR
 # =========================
-st.sidebar.image("/mnt/data/1a67cae0-d86b-4f4e-94bd-fac03264dc58.png", width=120)  # logo HERO
+st.sidebar.image("logo.png", width=150)  # logo di sidebar
 st.sidebar.title("HERO'S 🚀")
 st.sidebar.write("🔔 ⚙️")  # notification and settings icons
 page = st.sidebar.radio("Menu", ["Home", "Video Learning", "Virtual Lab", "Score Page"])
@@ -75,7 +75,7 @@ def user_header():
 if page == "Home":
     st.container()
     user_header()
-    st.title("Welcome to HERO 🧠")
+    st.title("Welcome to HERO'S 🧠")
     st.subheader("Recommended Learning Videos for You")
 
     subjects = {
