@@ -85,19 +85,19 @@ if page == "Home":
         "Math": "#FFF176"
     }
 
-    for subject, bg_color in subjects.items():
+     for subject, bg_color in subjects.items():
         st.markdown(f"<h3 style='background-color:{bg_color};padding:5px;border-radius:10px'>{subject} (High School)</h3>", unsafe_allow_html=True)
-        videos = [f"{subject} Topic {i+1}" for i in range(16)]
-        # Horizontal scroll container
-        st.markdown("<div class='horizontal-scroll'>", unsafe_allow_html=True)
-        for video_name in videos:
-            st.markdown(f"""
+        videos = [f"{subject} Topic {i+1}" for i in range(16)]  # 16 videos per subject
+        cols = st.columns(4)
+        for i, video_name in enumerate(videos):
+            col_index = i % 4
+            with cols[col_index]:
+                st.markdown(f"""
                 <div class='card' style='background-color:{bg_color}'>
                     <div class='video-box'>▶</div>
                     {video_name}
                 </div>
-            """, unsafe_allow_html=True)
-        st.markdown("</div>", unsafe_allow_html=True)
+                """, unsafe_allow_html=True
 
 # =========================
 # VIDEO LEARNING
